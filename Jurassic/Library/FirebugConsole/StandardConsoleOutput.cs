@@ -48,7 +48,7 @@ namespace Jurassic.Library
         /// ObjectInstances. </param>
         public void Log(FirebugConsoleMessageStyle style, object[] objects)
         {
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
             var original = Console.ForegroundColor;
             switch (style)
             {
@@ -76,7 +76,7 @@ namespace Jurassic.Library
             Console.WriteLine(message.ToString());
 
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
             if (style != FirebugConsoleMessageStyle.Regular)
                 Console.ForegroundColor = original;
 #endif
@@ -87,7 +87,7 @@ namespace Jurassic.Library
         /// </summary>
         public void Clear()
         {
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
             Console.Clear();
 #endif
         }

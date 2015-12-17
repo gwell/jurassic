@@ -219,7 +219,9 @@ namespace Jurassic
             IEnumerable_GetEnumerator = GetInstanceMethod(typeof(IEnumerable<string>), "GetEnumerator");
             IEnumerator_MoveNext = GetInstanceMethod(typeof(System.Collections.IEnumerator), "MoveNext");
             IEnumerator_Current = GetInstanceMethod(typeof(IEnumerator<string>), "get_Current");
+#if !__ANDROID__
             Debugger_Break = GetStaticMethod(typeof(System.Diagnostics.Debugger), "Break");
+#endif
             JavaScriptException_ErrorObject = GetInstanceMethod(typeof(JavaScriptException), "get_ErrorObject");
             Boolean_Construct = GetInstanceMethod(typeof(BooleanConstructor), "Construct", typeof(bool));
             
